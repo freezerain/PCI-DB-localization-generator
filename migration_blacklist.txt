@@ -1,0 +1,6 @@
+textreferences
+textcontents
+localizationlanguages
+aspnetroles
+aspnetuserclaims
+aspnetusers

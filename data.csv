@@ -1,0 +1,123 @@
+string_id,text_english,text_spanish
+local.splash.loading,Loading components.,Carregant components.
+local.splash.loading.error,Error loading components,Error al carregar els components.
+local.splash.init,Component initialization,Inicialitzant components.
+local.splash.init.error,Error component initialization,Error al inicialitzar els components.
+local.splash.init.tooltip,Entries and exit,Entrades i Sortides
+local.splash.init.diagnostic,Window diagnostic,Finestra Diagnostics
+local.splash.db,Testing connection to data base,Comprovant connexió amb la base de dades.
+local.splash.db.error,Error connection to data base.\n Try again. ,"Error connexió amb la base de dades.\nSi acaba d'arrancar l'ordinador, esperi un moment i torni a intentar-ho (Retry)."
+local.splash.db.register,Preparing register,Preparant registre
+local.splash.db.register.error,Error preparing register,Error al generar el registre.
+local.splash.db.machine,,Comprovant el maquinari
+local.splash.db.machine.error,,Error amb el maquinari
+local.splash.db.credentials,,Verificant credencials
+local.splash.db.credentials.error,,"Error, les credencials són incorrectes o no té permisos"
+local.splash.db.credentials.winTitle,,Credencials
+local.splash.db.credentials.instruction,,Si us plau introdueixi l'usuari i la contrasenya.
+local.splash.db.credentials.target,,IdentityContext
+,,
+local.messagebox.removeMessage,,"El programa s'ha eliminat, seleccioni un altre."
+local.messagebox.modificatedMessage,,"El programa s'ha modificat, el vols actualitzar? (Si no l'actualitza s'utilitzarà el programa vell)"
+local.messagebox.modificatedError,,El programa s'ha modificat i es necessari actualitzar-lo.
+local.messagebox.updateButton,,Actualitzar programa
+,,
+local.gbcButton.title,,res.Title
+local.gbcButton.repeat,,res.Repeat
+local.gbcButton.cancel,,res.Cancel
+,,
+local.testResultUI.tooltip.isCheckboxEnabled,,res.ckboxEnabled
+local.testResultUI.tooltip.isCheckboxDisabled,,res.ckboxDisabled
+local.testResultUI.messageBox.Permission.message,,"Vosté no te permisos per realitzar aquesta tasca, iniciï sessió amb un usuari autoritzat."
+local.testResultUI.messageBox.Permission.title,,Accés restringit!
+local.testResultUI.messageBox.Deactivation.messagePositive,,Activar el Test?
+local.testResultUI.messageBox.Deactivation.messageNegative,,Desactivar el Test?
+local.testResultUI.messageBox.Deactivation.confirmation,,Confirmar
+local.testResultUI.tooltip.graphics,,Vista gràfics temps real
+local.testResultUI.tooltip.parameters,,Vista paràmetres i resultats
+,,
+local.programaTestUI.resetMessage.title,,Confirmar
+local.programaTestUI.resetMessage.message,,Resetejar comptadors.
+local.programaTestUI.IncorrectClick.promt,,Quin valor vol establir?
+local.programaTestUI.IncorrectClick.title,,Modificar peces dolentes
+local.programaTestUI.IncorrectClick.default,,0
+local.programaTestUI.IncorrectClick.Message.message,,La SensaMag esperava un nombre.
+local.programaTestUI.IncorrectClick.Message.title,,Entrada incorrecte
+local.programaTestUI.CorrectClick.promt,,Quin valor vol establir?
+local.programaTestUI.CorrectClick.title,,Modificar peces bones
+local.programaTestUI.CorrectClick.default,,0
+local.programaTestUI.CorrectClick.Message.message,,La SensaMag esperava un nombre.
+local.programaTestUI.CorrectClick.Message.title,,Entrada incorrecte
+,,
+local.selectorProgramaUI.programaText,,res.lblRecepta_empty
+local.selectorProgramaUI.recepta,,res.pnlReceptaLblRecepta
+local.selectorProgramaUI.article,,res.pnlReceptaLblArticle
+local.selectorProgramaUI.filtrar,,res.pnlReceptaCkBxFiltrarArticle
+local.selectorProgramaUI.codi,,res.rbCodi
+local.selectorProgramaUI.descripcio,,res.rbDescripcio
+local.selectorProgramaUI.programaLabel,,Programa
+local.selectorProgramaUI.filterCheckbox,,Filtrar per article
+local.selectorProgramaUI.empty,,res.lblRecepta_empty
+local.selectorProgramaUI.modify,,res.TTpbReceptaModify
+local.selectorProgramaUI.drop,,res.TTpbDrop
+local.selectorProgramaUI.dropMessageBox.message,,Desactivi l'aplicació (Power Off) per a poder seleccionar de nou.
+local.selectorProgramaUI.dropMessageBox.title,,Programa bloquejat.
+,,
+,,
+local.sideTabControlUI.chartName,,Assistent d'execució
+,,
+local.mainWindow.powerOn,,TTpbPowerOn
+local.mainWindow.powerOff,,TTpbPowerOff
+local.mainWindow.state.comunicationError,,TTpbEstatMaquinaErrorComunicacions
+local.mainWindow.state.emergency,,TTpbEstatMaquinaEmergencia
+local.mainWindow.state.powerOff,,TTpbEstatMaquinaPowerOff
+local.mainWindow.state.vallatNoOk,,TTpbEstatMaquinaVallatNoOK
+local.mainWindow.state.powerOn,,TTpbEstatMaquinaPowerOn
+local.mainWindow.state.runCicle,,TTpbEstatMaquinaRunCicle
+local.mainWindow.state.error,,TTpbEstatMaquinaError
+local.mainWindow.messageBox.select.message,,La màquina requereix d'un programa seleccionat per poder-se preparar.
+local.mainWindow.messageBox.select.title,,Si us plau seleccioni un programa.
+local.mainWindow.messageBox.state.message,,La màquina no es troba en un estat vàlid per poder-se preparar.
+local.mainWindow.messageBox.state.title,,Verifiqui l'estat de la màquina.
+local.mainWindow.credential.title,,Credencials
+local.mainWindow.credential.instruction,,Si us plau introdueixi l'usuari i la contrasenya.
+local.mainWindow.credential.target,,IdentityContext
+local.mainWindow.messageBox.credentialError.message,,Credencials incorrectes o usuari sense permisos.
+local.mainWindow.messageBox.credentialError.title,,Fallo al cambiar d'usuari.
+local.mainWindow.settings.voice.on,,Activar So SensaMAG
+local.mainWindow.settings.voice.off,,Silenciar SensaMAG
+local.mainWindow.diagnosticTab,,Diagnostics
+,,
+local.loadingWindow.errorMessage,,"Error al carregar l'aplicació, vol reintentar?"
+,,
+local.resultCharUI.averageName,,Mitjana
+local.resultCharUI.groupLegend,,Group Legend
+local.resultCharUI.groupChartArea,,Group Chart Area
+local.resultCharUI.invisibleGroup,,Invisible Group Chart Area
+local.resultCharUI.individualLegend,,Individual Legend
+local.resultCharUI.enableDPN,,ENABLED
+local.resultCharUI.labelSPN,,LABELS
+local.resultCharUI.xValuePn,,XVALUE
+local.resultCharUI.yValuePn,,YVALUE
+local.resultCharUI.visibleIntervalPn,,VISIBLEINTERVAL
+local.resultCharUI.startIntervalPn,,STARTINTERVAL
+local.resultCharUI.endIntervalPn,,ENDINTERVAL
+local.resultCharUI.legend,,Llegenda
+,,
+local.resultCharUI.column.text,,CUSTOMPROPERTY
+local.resultCharUI.column.dpnHeader,,Vis.
+local.resultCharUI.column.dpnTooltip,,Visibilitat
+local.resultCharUI.column.legend,,LEGENDTEXT
+local.resultCharUI.column.spnHeader,,Val.
+local.resultCharUI.column.spnTooltip,,Mostrar valors
+local.resultCharUI.column.xValueHeader,,X
+local.resultCharUI.column.xValueTooltip,,Punt del eix X més proper respecte el cursor
+local.resultCharUI.column.yValueHeader,,Y
+local.resultCharUI.column.yValueTooltip,,Punt del eix Y més proper respecte el cursor
+,,
+local.resultCharUI.column.intervalHeader,,INT.
+local.resultCharUI.column.intervalTooltip,,Mostrar franja interval
+,,
+local.mainWindow.title,,SensaMag
+,,
+local.genericControls.nameLabel,,Nom
