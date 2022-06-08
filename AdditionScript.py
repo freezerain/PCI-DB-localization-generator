@@ -1,4 +1,4 @@
-# Script to add localization strings from CSV - format-strick, rework if table columns will change
+# Script to add localization strings from CSV - format-strict, rework if table columns will change
 def add_to_db(connection, data):
     cursor = connection.cursor()
     # Hardcoded IDs of Languages

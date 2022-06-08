@@ -7,6 +7,7 @@ import DBCrawler
 doAddition = False
 doMigration = True
 doCrawler = False
+
 # edit connection settings in MariaDBConnector.py
 connection = MariaDBConnector().conn
 

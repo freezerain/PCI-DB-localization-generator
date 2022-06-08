@@ -1,11 +1,13 @@
 import mariadb
 import sys
 
+
 # facade around mariaDB connector
 class MariaDBConnector:
 
     def __init__(self):
         try:
+            # put your connection settings here
             self.conn = mariadb.connect(
                 user="python",
                 password="1234",

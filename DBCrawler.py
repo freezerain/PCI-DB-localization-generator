@@ -1,6 +1,4 @@
-import csv
-
-
+# save all text columns that are not PRIMARY KEY for each table in DB
 def get_text_columns(connection):
     cursor = connection.cursor()
     cursor.execute("SHOW TABLES;")
@@ -18,6 +16,7 @@ def get_text_columns(connection):
         _dump_data_to_file(result_dict)
 
 
+# serialize data, format: "TABLE:COL1, COL2, ..."
 def _dump_data_to_file(data):
     with open('text_columns.txt', 'w', newline='') as f:
         for data_key in data:
