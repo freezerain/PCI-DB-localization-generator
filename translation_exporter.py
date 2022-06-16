@@ -5,26 +5,31 @@ from MariaDBConnector import MariaDBConnector
 # edit connection settings in MariaDBConnector.py
 connection = MariaDBConnector().conn
 cursor = connection.cursor()
-
+# select all localization data from DB
 cursor.execute("""select r.Name, c.Name, c.Text, l.Name, c.Description, r.Tag, r.Id, c.Id, l.Id from textcontents c
 inner join textreferences r on c.TextReferences_Id = r.Id
 inner join localizationlanguages l on c.Language_Id = l.Id""")
 
 lines_dict = {}
 for ref, name, cont, lang, desc, tags, ref_id, cont_id, lang_id in cursor:
+    # assemble dict with textReference data
     if ref not in lines_dict:
         lines_dict[ref] = {'ref': ref, 'ref_id': ref_id, 'tags': tags}
+    # add to dic english textContent data
     if lang_id == 1:
         lines_dict[ref].update(
             {'name_en': name, 'cont_en': cont, 'desc_en': desc, 'cont_en_id': cont_id})
+    # add to dic spanish textContent data
     else:
         lines_dict[ref].update(
             {'name_es': name, 'cont_es': cont, 'desc_es': desc, 'cont_es_id': cont_id})
 
+# create 4 files for each type of content
 with open('trans_local.csv', 'w', newline='') as local_file, \
         open('trans_web.csv', 'w', newline='') as web_file, \
         open('trans_dynamic.csv', 'w', newline='') as dynamic_file, \
         open('trans_static.csv', 'w', newline='') as static_file:
+    # headers for final CSV table columns
     fieldnames = ['ref', 'name_en', 'name_es', 'cont_en', 'cont_es', 'desc_en', 'desc_es',
                   'tags', 'ref_id', 'cont_en_id', 'cont_es_id']
     local_writer = csv.DictWriter(local_file, fieldnames=fieldnames)
@@ -36,7 +41,9 @@ with open('trans_local.csv', 'w', newline='') as local_file, \
     dynamic_writer.writeheader()
     static_writer.writeheader()
 
+    # begin write to files
     for line_ref in lines_dict:
+        # choose correct file to write
         current_writer = static_writer
         if line_ref.startswith('local.'):
             current_writer = local_writer
@@ -44,5 +51,6 @@ with open('trans_local.csv', 'w', newline='') as local_file, \
             current_writer = web_writer
         elif line_ref.startswith('dynamic.'):
             current_writer = dynamic_writer
+        # write
         row = lines_dict[line_ref]
         current_writer.writerow(row)
