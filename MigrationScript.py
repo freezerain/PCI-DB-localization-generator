@@ -1,10 +1,12 @@
+import text_columns_loader
+
 spanish_lang_id = 2
 
 
 # Script to extract strings from the table and create reference in textreference table
 def start_migration(connection):
     cursor = connection.cursor()
-    text_column_dict = _load_text_columns()
+    text_column_dict = text_columns_loader.load_text_columns()
     # for each table that dict contains
     for table_key in text_column_dict:
         col_list = text_column_dict[table_key]
@@ -36,34 +38,3 @@ def start_migration(connection):
     connection.commit()
 
 
-# read from file finded columns of text that we want to migrate
-# use whitelist.txt and blacklist.txt files to remove TABLES and add TABLES:[COLUMNS]
-def _load_text_columns():
-    with open('text_columns.txt', newline='') as f:
-        result_dict = {}
-        # deserialize data
-        for line in f.read().splitlines():
-            split_result = line.split(":")
-            result_dict[split_result[0]] = list(filter(str.strip, split_result[1].split(',')))
-        blacklist = _read_blacklist()
-        # remove blacklisted TABLES from data
-        result_dict = dict((k, result_dict[k]) for k in result_dict if k not in blacklist)
-        whitelist_dic = _read_whitelist()
-        # add TABLES with COLUMNS to data (possible duplication)
-        result_dict.update(whitelist_dic)
-        return result_dict
-
-
-def _read_blacklist():
-    with open('migration_blacklist.txt') as f:
-        return f.read().splitlines()
-
-
-# deserialize whitelist format (same as text_columns.txt format)
-def _read_whitelist():
-    with open('migration_whitelist.txt') as f:
-        result_dict = {}
-        for line in f.read().splitlines():
-            split_result = line.split(":")
-            result_dict[split_result[0]] = list(filter(str.strip, split_result[1].split(',')))
-        return result_dict
