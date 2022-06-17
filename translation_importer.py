@@ -28,6 +28,8 @@ with open('trans_local.csv', 'r') as local_file, \
         ref, name_en, name_es, cont_en, cont_es, desc_en, desc_es, tags, ref_id, \
         cont_en_id, cont_es_id = line_dict.values()
         # if reference is exist - UPDATE else INSERT
+        if not ref_id:
+            continue
         cursor.execute("SELECT 1 FROM textreferences WHERE Id=?", (ref_id,))
         cursor.fetchall()
         if cursor.rowcount:
@@ -37,14 +39,14 @@ with open('trans_local.csv', 'r') as local_file, \
             cursor.execute(
                 f"INSERT INTO textreferences (Name, Tag) VALUES (?, ?)", (ref, tags,))
 
-        # if englihs content is exist - UPDATE else INSERT
+        # if english content is exist - UPDATE else INSERT
         cursor.execute("SELECT 1 FROM textcontents WHERE Id=?", (cont_en_id,))
         cursor.fetchall()
         if cursor.rowcount:
             cursor.execute("UPDATE textcontents SET Name=?,Text=?,"
                            "Description=?, TextReferences_Id=? WHERE Id=?",
                            (name_en, cont_en, desc_en, ref_id, cont_en_id,))
-        else:
+        elif cont_en_id:
             cursor.execute(
                 "INSERT INTO textcontents (Name, Text, Description, Language_Id, TextReferences_Id) "
                 f"VALUES (?, ?, ?,?,?)", (name_en, cont_en, desc_en, '1', ref_id,))
@@ -56,7 +58,7 @@ with open('trans_local.csv', 'r') as local_file, \
             cursor.execute(
                 "UPDATE textcontents SET Name=?,Text=?,Description=?,TextReferences_Id=? "
                 "WHERE Id=?", (name_es, cont_es, desc_es, ref_id, cont_es_id))
-        else:
+        elif cont_en_id:
             cursor.execute(
                 "INSERT INTO textcontents (Name, Text, Description, Language_Id, TextReferences_Id) "
                 f"VALUES (?,?,?,?,?)", (name_es, cont_es, desc_es, '2', ref_id,))
